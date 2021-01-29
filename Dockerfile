@@ -8,7 +8,7 @@ RUN apk update -q && apk upgrade -q && apk add -q \
     grep \
     python3 \
     py3-pip \
-    jq; \
+    jq curl; \
     pip3 install --quiet --upgrade pip awscli
 
 ENV PATH "/root/.local/bin:${PATH}"
