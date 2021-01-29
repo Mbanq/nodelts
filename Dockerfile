@@ -1,14 +1,8 @@
-FROM node:lts-alpine3.12
+FROM node:lts
 
 MAINTAINER Mbanq <dev@mbanq.com>
 
-RUN apk update -q && apk upgrade -q && apk add -q \
-    bash \
-    git \
-    grep \
-    python3 \
-    py3-pip \
-    jq curl; \
-    pip3 install --quiet --upgrade pip awscli
+RUN apt-get update && apt-get install -y python-pip jq curl; \
+    pip install --quiet --upgrade pip awscli
 
 ENV PATH "/root/.local/bin:${PATH}"
